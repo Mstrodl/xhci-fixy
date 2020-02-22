@@ -1,0 +1,16 @@
+From: digimend-xhci@coolmathgames.tech
+
+This patch moves the misc directory because DKMS is silly
+
+diff -uNr host/u132-hcd.c host-edited/u132-hcd.c
+--- a/u132-hcd.c	2020-02-19 18:54:14.000000000 +0000
++++ b/u132-hcd.c	2020-02-22 17:36:57.723096561 +0000
+@@ -242,6 +242,6 @@
+ #define kref_to_u132(d) container_of(d, struct u132, kref)
+ #define kref_to_u132_endp(d) container_of(d, struct u132_endp, kref)
+ #define kref_to_u132_udev(d) container_of(d, struct u132_udev, kref)
+-#include "../misc/usb_u132.h"
++#include "./usb_u132.h"
+ static const char hcd_name[] = "u132_hcd";
+ #define PORT_C_MASK ((USB_PORT_STAT_C_CONNECTION | USB_PORT_STAT_C_ENABLE | \
+        USB_PORT_STAT_C_SUSPEND | USB_PORT_STAT_C_OVERCURRENT | \
